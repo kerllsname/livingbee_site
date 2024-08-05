@@ -1,12 +1,12 @@
-import moment from 'moment/min/moment-with-locales';
 import './App.css';
+import DateComponent from './components/Date';
 
 function App() {
-  const momentLocale = moment().locale("ru");
-  
   return (
     <>
-      <h1>{momentLocale.format("LL")}</h1>
+      <h1>
+        <DateComponent />
+      </h1>
     </>
   );
 }
