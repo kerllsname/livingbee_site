@@ -1,18 +1,26 @@
+import './index.css';
+import '@mantine/core/styles.css';
+
+import { MantineProvider } from '@mantine/core';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import App from './App.tsx';
-import './index.css';
+import NotFoundTitle from './components/404/NotFoundTitle.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <NotFoundTitle />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <MantineProvider defaultColorScheme="dark">
+      <RouterProvider router={router} />
+    </MantineProvider>
   </React.StrictMode>
 );

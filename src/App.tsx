@@ -1,14 +1,18 @@
-import { MantineProvider } from '@mantine/core';
-import '@mantine/core/styles.css';
-import NotFoundTitle from './components/404/NotFoundTitle.tsx';
+import { AppShell } from '@mantine/core';
+
+import Homepage from './components/Homepage.tsx';
 import Navbar from './components/Navbar.tsx';
 
 function App() {
   return (
-    <MantineProvider defaultColorScheme="dark">
-      <NotFoundTitle />
-      <Navbar />
-    </MantineProvider>
+    <AppShell>
+      <AppShell.Main>
+        <Homepage />
+      </AppShell.Main>
+      <AppShell.Footer>
+        <Navbar />
+      </AppShell.Footer>
+    </AppShell>
   );
 }
 
