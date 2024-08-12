@@ -1,12 +1,12 @@
 import './App.css';
-import NavbarComponent from './components/Navbar';
-import ToDoTable from './components/ToDoTable';
+import DateComponent from './components/Date';
 
 function App() {
   return (
     <>
-      <NavbarComponent />
-      <ToDoTable />
+      <h1>
+        <DateComponent />
+      </h1>
     </>
   );
 }
