@@ -133,15 +133,15 @@ function HomepageComponent() {
         <TextInput
           mt="xs"
           ref={taskTitle}
-          placeholder="Task Title"
+          placeholder="Название задачи"
           required
-          label="Title"
+          label="Название"
         />
         <TextInput
           ref={taskSummary}
           mt="md"
-          placeholder="Task Summary"
-          label="Summary"
+          placeholder="Описание задачи"
+          label="Описание"
         />
         <Group mt="md" justify="space-between">
           <Button
@@ -158,7 +158,7 @@ function HomepageComponent() {
               closeModal();
             }}
           >
-            Create Task
+            Создать задачу
           </Button>
         </Group>
       </Modal>
@@ -188,9 +188,7 @@ function HomepageComponent() {
               if (task.title) {
                 return (
                   <Card withBorder key={index} mt="sm">
-                    <Group>
-                      <Text>{task.title}</Text>
-                    </Group>
+                    <Text size="lg">{task.title}</Text>
                     {task.summary ? (
                       <Text size="md" mt="sm">
                         {task.summary}
