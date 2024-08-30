@@ -5,7 +5,7 @@ import Navbar from './components/Navbar.tsx';
 
 function App() {
   return (
-    <AppShell>
+    <AppShell layout="alt" pb="xl">
       <AppShell.Main>
         <Homepage />
       </AppShell.Main>

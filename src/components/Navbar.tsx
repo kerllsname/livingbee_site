@@ -1,5 +1,11 @@
+import { Center } from '@mantine/core';
+
 function Navbar() {
-  return <h1>K</h1>;
+  return (
+    <Center>
+      <p>Элементы меню</p>
+    </Center>
+  );
 }
 
 export default Navbar;
