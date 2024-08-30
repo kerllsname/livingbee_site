@@ -3,6 +3,7 @@ import {
   Card,
   Center,
   Container,
+  Flex,
   Group,
   Modal,
   Text,
@@ -168,10 +169,20 @@ function HomepageComponent() {
           </Title>
         </Center>
         <Container>
-          <Group justify="space-between" mt="xl" mb="md">
+          <Flex
+            mt="xl"
+            mb="md"
+            gap="sm"
+            justify="center"
+            align="center"
+            direction="column"
+            wrap="wrap"
+          >
             <Title order={3}>Задачи на сегодня</Title>
-            <Button onClick={openModal}>Новая задача</Button>
-          </Group>
+            <Button fullWidth onClick={openModal}>
+              Новая задача
+            </Button>
+          </Flex>
           {tasks.length > 0 ? (
             tasks.map((task, index) => {
               if (task.title) {
@@ -180,11 +191,15 @@ function HomepageComponent() {
                     <Group>
                       <Text>{task.title}</Text>
                     </Group>
-                    <Text size="md" mt="sm">
-                      {task.summary
-                        ? task.summary
-                        : 'No summary was provided for this task'}
-                    </Text>
+                    {task.summary ? (
+                      <Text size="md" mt="sm">
+                        {task.summary}
+                      </Text>
+                    ) : (
+                      <Text size="md" mt="sm" c="dimmed">
+                        Описания нет
+                      </Text>
+                    )}
                   </Card>
                 );
               }
