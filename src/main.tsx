@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import './index.css';
 import '@mantine/core/styles.css';
 
@@ -11,10 +12,15 @@ import NotFoundTitle from './components/404/NotFoundTitle.tsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/home',
     element: <App />,
     errorElement: <NotFoundTitle />,
   },
+  // {
+  //   path: '/:tabValue',
+  //   element: <Outlet />,
+  //   errorElement: <NotFoundTitle />,
+  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

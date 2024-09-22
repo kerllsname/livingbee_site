@@ -1,7 +1,6 @@
 import {
   Button,
   Card,
-  Center,
   Container,
   Flex,
   Group,
@@ -13,15 +12,12 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import { useEffect, useRef, useState } from 'react';
 
-import DateComponent from './Date';
-// import classes from './Homepage.module.css';
-
 interface ToDoTask {
   title: string;
   summary: string;
 }
 
-function HomepageComponent() {
+function ToDoComponent() {
   const [tasks, setTasks] = useState<ToDoTask[]>([]);
   const [modalOpened, { open: openModal, close: closeModal }] =
     useDisclosure(false);
@@ -43,16 +39,6 @@ function HomepageComponent() {
     }
   }
 
-  // function deleteTask(index) {
-  //   const clonedTasks = [...tasks];
-
-  //   clonedTasks.splice(index, 1);
-
-  //   setTasks(clonedTasks);
-
-  //   saveTasks([...clonedTasks]);
-  // }
-
   function loadTasks() {
     if (window.localStorage.length) {
       const storage: unknown = JSON.parse(
@@ -70,62 +56,6 @@ function HomepageComponent() {
   useEffect(() => {
     loadTasks();
   }, []);
-
-  // function createTask() {
-  //   if (taskTitle.current) {
-  //     const task: ToDoTask = {
-  //       title: taskTitle.current.value,
-  //       summary: taskSummary.current.value,
-  //     };
-
-  //     setTasks([
-  //       ...tasks,
-  //       {
-  //         title: taskTitle.current.value,
-  //         summary: taskSummary.current.value,
-  //       },
-  //     ]);
-
-  //     saveTasks([
-  //       ...tasks,
-  //       {
-  //         title: taskTitle.current.value,
-  //         summary: taskSummary.current.value,
-  //       },
-  //     ]);
-  //   }
-  // }
-
-  // // function deleteTask(index: number) {
-  // //   const clonedTasks = [...tasks];
-
-  // //   clonedTasks.splice(index, 1);
-
-  // //   setTasks(clonedTasks);
-
-  // //   saveTasks([...clonedTasks]);
-  // // }
-
-  // function loadTasks() {
-  //   // const loadedTasks = localStorage.getItem('tasks');
-
-  //   if (window.localStorage.length) {
-  //     const storage: unknown = JSON.parse(
-  //       localStorage.getItem('tasks') ?? '""'
-  //     );
-  //     const storageTasks = storage as ToDoTask[];
-
-  //     setTasks(storageTasks);
-  //   }
-  // }
-
-  // function saveTasks(savedTasks: ToDoTask[]) {
-  //   localStorage.setItem('tasks', JSON.stringify(savedTasks));
-  // }
-
-  // useEffect(() => {
-  //   loadTasks();
-  // }, []);
 
   return (
     <>
@@ -163,11 +93,6 @@ function HomepageComponent() {
         </Group>
       </Modal>
       <Container fluid m="xl">
-        <Center>
-          <Title order={2}>
-            <DateComponent />
-          </Title>
-        </Center>
         <Container>
           <Flex
             mt="xl"
@@ -214,4 +139,4 @@ function HomepageComponent() {
   );
 }
 
-export default HomepageComponent;
+export default ToDoComponent;

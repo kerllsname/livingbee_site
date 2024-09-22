@@ -1,13 +1,13 @@
 import { AppShell } from '@mantine/core';
 
-import Homepage from './components/Homepage.tsx';
+import HomePageComponent from './components/HomePage/Home.tsx';
 import Navbar from './components/Navbar.tsx';
 
 function App() {
   return (
-    <AppShell layout="alt" pb="xl">
-      <AppShell.Main pb="xl">
-        <Homepage />
+    <AppShell>
+      <AppShell.Main>
+        <HomePageComponent />
       </AppShell.Main>
       <AppShell.Footer>
         <Navbar />
