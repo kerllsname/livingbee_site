@@ -9,18 +9,26 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.tsx';
 import NotFoundTitle from './components/404/NotFoundTitle.tsx';
+import HomePageComponent from './components/HomePage/Home.tsx';
 
 const router = createBrowserRouter([
   {
-    path: '/home',
+    path: '/',
     element: <App />,
     errorElement: <NotFoundTitle />,
+    children: [
+      { path: '/home', element: <HomePageComponent /> },
+      {
+        path: '/calendar',
+      },
+      {
+        path: '/advice',
+      },
+      {
+        path: '/profile',
+      },
+    ],
   },
-  // {
-  //   path: '/:tabValue',
-  //   element: <Outlet />,
-  //   errorElement: <NotFoundTitle />,
-  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

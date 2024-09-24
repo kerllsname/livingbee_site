@@ -1,13 +1,13 @@
 import { AppShell } from '@mantine/core';
+import { Outlet } from 'react-router-dom';
 
-import HomePageComponent from './components/HomePage/Home.tsx';
 import Navbar from './components/Navbar.tsx';
 
 function App() {
   return (
     <AppShell>
       <AppShell.Main>
-        <HomePageComponent />
+        <Outlet />
       </AppShell.Main>
       <AppShell.Footer>
         <Navbar />
