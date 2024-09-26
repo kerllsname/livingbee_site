@@ -12,7 +12,7 @@ function Navbar() {
   const { tabValue } = useParams();
 
   return (
-    <Center m="sm">
+    <Center h={70}>
       <Tabs
         variant="pills"
         defaultValue="home"

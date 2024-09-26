@@ -14,6 +14,7 @@ import {
 import App from './App.tsx';
 import NotFoundTitle from './components/404/NotFoundTitle.tsx';
 import HomePageComponent from './components/HomePage/Home.tsx';
+import ProfileComponent from './components/ProfilePage/Profile.tsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
+        element: <ProfileComponent />,
       },
     ],
   },

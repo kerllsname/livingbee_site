@@ -5,7 +5,7 @@ import Navbar from './components/Navbar.tsx';
 
 function App() {
   return (
-    <AppShell>
+    <AppShell footer={{ height: 70 }}>
       <AppShell.Main>
         <Outlet />
       </AppShell.Main>
