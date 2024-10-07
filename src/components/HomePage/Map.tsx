@@ -1,51 +1,49 @@
 import { Flex, Group, Text } from '@mantine/core';
-import Map from 'react-map-gl';
+import { IconMapPinFilled } from '@tabler/icons-react';
+import Map, { Marker } from 'react-map-gl';
 
-function MainInfoSection() {
+function MapComponent(props: {
+  mapJustify: string;
+  mapAlign: string;
+  mapVisible: string;
+  mapHidden: string;
+  mapLong: number;
+  mapLat: number;
+}) {
   return (
-    <Flex
-      p="sm"
-      bd="2px solid var(--app-shell-border-color)"
-      style={{ borderRadius: '10px' }}
-      direction="column"
+    <Group
+      justify={props.mapJustify}
+      align={props.mapAlign}
+      visibleFrom={props.mapVisible}
+      hiddenFrom={props.mapHidden}
     >
-      <Text size="xl">Общая информация</Text>
-      <Group justify="space-between" align="flex-start" visibleFrom="sm">
-        <Flex direction="column">
-          <Text c="dimmed">Пасека: Пчёлки</Text>
-          <Text c="dimmed">Местоположение: Деревня Малявки</Text>
-          <Text c="dimmed">Координаты: 53.84, 27.61</Text>
-        </Flex>
-        <Map
-          mapboxAccessToken="pk.eyJ1Ijoia2VybGwiLCJhIjoiY2t1azh6aWh1MHJiMzJ3cGVtbTN5dTdvMSJ9.8ZObRkwHgXkxx2xJY3BXUQ"
-          initialViewState={{
-            longitude: 27.617832,
-            latitude: 53.846959,
-            zoom: 15,
-          }}
-          style={{ width: 300, height: 300, borderRadius: 10 }}
-          mapStyle="mapbox://styles/mapbox/standard"
-        />
-      </Group>
-      <Group justify="center" align="center" hiddenFrom="sm">
-        <Flex direction="column">
-          <Text c="dimmed">Пасека: Пчёлки</Text>
-          <Text c="dimmed">Местоположение: Деревня Малявки</Text>
-          <Text c="dimmed">Координаты: 53.84, 27.61</Text>
-        </Flex>
-        <Map
-          mapboxAccessToken="pk.eyJ1Ijoia2VybGwiLCJhIjoiY2t1azh6aWh1MHJiMzJ3cGVtbTN5dTdvMSJ9.8ZObRkwHgXkxx2xJY3BXUQ"
-          initialViewState={{
-            longitude: 27.617832,
-            latitude: 53.846959,
-            zoom: 15,
-          }}
-          style={{ width: 300, height: 300, borderRadius: 10 }}
-          mapStyle="mapbox://styles/mapbox/standard"
-        />
-      </Group>
-    </Flex>
+      <Flex direction="column">
+        <Text c="dimmed">Пасека: Пчёлки</Text>
+        <Text c="dimmed">Местоположение: Деревня Малявки</Text>
+        <Text c="dimmed">
+          Координаты: {props.mapLat}, {props.mapLong}
+        </Text>
+      </Flex>
+      <Map
+        mapboxAccessToken="pk.eyJ1Ijoia2VybGwiLCJhIjoiY2t1azh6aWh1MHJiMzJ3cGVtbTN5dTdvMSJ9.8ZObRkwHgXkxx2xJY3BXUQ"
+        initialViewState={{
+          longitude: props.mapLong,
+          latitude: props.mapLat,
+          zoom: 15,
+        }}
+        style={{ width: 300, height: 300, borderRadius: 10 }}
+        mapStyle="mapbox://styles/mapbox/outdoors-v12"
+      >
+        <Marker
+          longitude={props.mapLong}
+          latitude={props.mapLat}
+          anchor="bottom"
+        >
+          <IconMapPinFilled color="red" />
+        </Marker>
+      </Map>
+    </Group>
   );
 }
 
-export default MainInfoSection;
+export default MapComponent;

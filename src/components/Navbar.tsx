@@ -5,18 +5,18 @@ import {
   IconNotes,
   IconUserCircle,
 } from '@tabler/icons-react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const navigate = useNavigate();
-  const { tabValue } = useParams();
+  const location = useLocation().pathname.slice(1);
 
   return (
     <Center h={70}>
       <Tabs
         variant="pills"
         defaultValue="home"
-        value={tabValue}
+        value={location}
         onChange={(value) => {
           value ? navigate(`/${value}`) : navigate('/error');
         }}
