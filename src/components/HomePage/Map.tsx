@@ -19,7 +19,7 @@ function MapComponent(props: {
     >
       <Flex direction="column">
         <Text c="dimmed">Пасека: Пчёлки</Text>
-        <Text c="dimmed">Местоположение: Деревня Малявки</Text>
+        <Text c="dimmed">Местоположение: Агрогородок Колодищи</Text>
         <Text c="dimmed">
           Координаты: {props.mapLat}, {props.mapLong}
         </Text>
