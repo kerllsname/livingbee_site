@@ -25,6 +25,7 @@ function MapComponent(props: {
         </Text>
       </Flex>
       <Map
+        reuseMaps
         mapboxAccessToken="pk.eyJ1Ijoia2VybGwiLCJhIjoiY2t1azh6aWh1MHJiMzJ3cGVtbTN5dTdvMSJ9.8ZObRkwHgXkxx2xJY3BXUQ"
         initialViewState={{
           longitude: props.mapLong,

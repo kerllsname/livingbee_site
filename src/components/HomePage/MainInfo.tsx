@@ -1,4 +1,4 @@
-import { Flex, Text } from '@mantine/core';
+import { Divider, Flex, Text } from '@mantine/core';
 
 import MapComponent from './Map';
 
@@ -11,6 +11,7 @@ function MainInfoSection() {
       direction="column"
     >
       <Text size="xl">Общая информация</Text>
+      <Divider size="xs" mt="xs" mb="xs" />
       <MapComponent
         mapJustify="space-between"
         mapAlign="flex-start"
