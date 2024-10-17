@@ -71,84 +71,72 @@ function WeatherSection() {
       <Divider size="xs" mt="xs" mb="xs" />
       <Group justify="center">
         <Flex direction="column" align="center" gap="xs">
-          <Text>Сейчас</Text>
-          <Image
-            src={
-              weatherData ? (
-                weatherData.data.current.condition.icon
-              ) : (
-                <Loader color="blue" />
-              )
-            }
-            w="30"
-          />
-          <Text>
-            {weatherData ? (
-              `${Math.floor(weatherData.data.current.temp_c)}°`
-            ) : (
-              <Loader color="blue" />
-            )}
-          </Text>
+          {weatherData ? (
+            <>
+              <Text>Сейчас</Text>
+              <Image src={weatherData.data.current.condition.icon} w="30" />
+              <Text>{`${Math.floor(weatherData.data.current.temp_c)}°`}</Text>
+            </>
+          ) : (
+            <Loader color="blue" />
+          )}
         </Flex>
         <Flex direction="column" align="center" gap="xs">
-          <Text>Сегодня</Text>
-          <Image
-            src={
-              weatherData ? (
-                weatherData.data.forecast.forecastday[0].day.condition.icon
-              ) : (
-                <Loader color="blue" />
-              )
-            }
-            w="30"
-          />
-          <Text>
-            {weatherData ? (
-              `${Math.floor(weatherData.data.forecast.forecastday[0].day.maxtemp_c)}°`
-            ) : (
-              <Loader color="blue" />
-            )}
-          </Text>
+          {weatherData ? (
+            <>
+              <Text>Сегодня</Text>
+              <Image
+                src={
+                  weatherData.data.forecast.forecastday[0].day.condition.icon
+                }
+                w="30"
+              />
+              <Text>
+                {`${Math.floor(
+                  weatherData.data.forecast.forecastday[0].day.maxtemp_c
+                )}
+                °`}
+              </Text>
+            </>
+          ) : (
+            <Loader color="blue" />
+          )}
         </Flex>
         <Flex direction="column" align="center" gap="xs">
-          <Text>Завтра</Text>
-          <Image
-            src={
-              weatherData ? (
-                weatherData.data.forecast.forecastday[1].day.condition.icon
-              ) : (
-                <Loader color="blue" />
-              )
-            }
-            w="30"
-          />
-          <Text>
-            {weatherData ? (
-              `${Math.floor(weatherData.data.forecast.forecastday[1].day.maxtemp_c)}°`
-            ) : (
-              <Loader color="blue" />
-            )}
-          </Text>
+          {weatherData ? (
+            <>
+              <Text>Завтра</Text>
+              <Image
+                src={
+                  weatherData.data.forecast.forecastday[1].day.condition.icon
+                }
+                w="30"
+              />
+              <Text>
+                {`${Math.floor(weatherData.data.forecast.forecastday[1].day.maxtemp_c)}°`}
+              </Text>
+            </>
+          ) : (
+            <Loader color="blue" />
+          )}
         </Flex>
         <Flex direction="column" align="center" gap="xs">
-          <Text>Послезавтра</Text>
-          <Image
-            src={
-              weatherData ? (
-                weatherData.data.forecast.forecastday[2].day.condition.icon
-              ) : (
-                <Loader color="blue" />
-              )
-            }
-            w="30"
-          />
-          <Text>
-            {weatherData ? (
-              `${Math.floor(weatherData.data.forecast.forecastday[2].day.maxtemp_c)}°`
-            ) : (
-              <Loader color="blue" />
-            )}
-          </Text>
+          {weatherData ? (
+            <>
+              <Text>Послезавтра</Text>
+              <Image
+                src={
+                  weatherData.data.forecast.forecastday[2].day.condition.icon
+                }
+                w="30"
+              />
+              <Text>
+                {`${Math.floor(weatherData.data.forecast.forecastday[2].day.maxtemp_c)}°`}
+              </Text>
+            </>
+          ) : (
+            <Loader color="blue" />
+          )}
         </Flex>
       </Group>
     </Flex>
