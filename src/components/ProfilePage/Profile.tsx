@@ -1,10 +1,20 @@
-import { Flex, Text } from '@mantine/core';
+import { Container, Flex, Text } from '@mantine/core';
 
 function ProfileComponent() {
   return (
-    <Flex>
-      <Text size="xl">Profile</Text>
-    </Flex>
+    <Container p="md">
+      <Flex justify="center" direction="column">
+        <Flex
+          mt="md"
+          p="sm"
+          bd="2px solid var(--app-shell-border-color)"
+          style={{ borderRadius: '10px' }}
+          direction="column"
+        >
+          <Text size="xl">Ваши данные</Text>
+        </Flex>
+      </Flex>
+    </Container>
   );
 }
 
