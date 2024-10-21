@@ -1,0 +1,55 @@
+import { Center, Tabs } from '@mantine/core';
+import {
+  IconCalendar,
+  IconHome,
+  IconNotes,
+  IconUserCircle,
+} from '@tabler/icons-react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation().pathname.slice(1);
+
+  return (
+    <Center h={70}>
+      <Tabs
+        variant="pills"
+        defaultValue="home"
+        value={location}
+        onChange={(value) => {
+          value ? navigate(`/${value}`) : navigate('/error');
+        }}
+      >
+        <Tabs.List>
+          <Tabs.Tab value="calendar" visibleFrom="md">
+            Календарь
+          </Tabs.Tab>
+          <Tabs.Tab value="home" visibleFrom="md">
+            Главная
+          </Tabs.Tab>
+          <Tabs.Tab value="advice" visibleFrom="md">
+            Справочник
+          </Tabs.Tab>
+          <Tabs.Tab value="profile" visibleFrom="md">
+            Профиль
+          </Tabs.Tab>
+          <Tabs.Tab value="calendar" hiddenFrom="md">
+            <IconCalendar />
+          </Tabs.Tab>
+          <Tabs.Tab value="home" hiddenFrom="md">
+            <IconHome />
+          </Tabs.Tab>
+          <Tabs.Tab value="advice" hiddenFrom="md">
+            <IconNotes />
+          </Tabs.Tab>
+          <Tabs.Tab value="profile" hiddenFrom="md">
+            <IconUserCircle />
+          </Tabs.Tab>
+        </Tabs.List>
+      </Tabs>
+    </Center>
+  );
+}
+
+export default Navbar;
