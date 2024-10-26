@@ -1,6 +1,8 @@
 import { Container, Flex, Text } from '@mantine/core';
 
 function ProfileComponent() {
+  const tg = window.Telegram.WebApp;
+
   return (
     <Container p="md">
       <Flex justify="center" direction="column">
@@ -11,7 +13,8 @@ function ProfileComponent() {
           style={{ borderRadius: '10px' }}
           direction="column"
         >
-          <Text size="xl">Ваши данные</Text>
+          <Text size="xl">Ваши данные:</Text>
+          <Text size="xl">Никнейм: {tg.initDataUnsafe?.user?.username}</Text>
         </Flex>
       </Flex>
     </Container>
